@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nvking - Official Script Hub</title>
+  
+  <!-- Font & Icon -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0b0c10;
+      color: #e0e0e0;
+      padding-bottom: 30px;
+    }
+
+    /* Header & Navbar */
+    .navbar {
+      background-color: #12141c;
+      padding: 15px 20px;
+      border-bottom: 1px solid #1f2330;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-box {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #ff2a2a, #800000);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(255, 42, 42, 0.4);
+    }
+
+    .logo-letter {
+      color: #fff;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 18px;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .live-dot {
+      color: #00ff66;
+      font-size: 8px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 10px 10px 38px;
+      border-radius: 8px;
+      border: 1px solid #232736;
+      background-color: #181a24;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: #ff2a2a;
+    }
+
+    /* Container Utama */
+    .container {
+      max-width: 600px;
+      margin: 15px auto;
+      padding: 0 15px;
+    }
+
+    .back-link {
+      color: #888;
+      text-decoration: none;
+      font-size: 13px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* Frame Video */
+    .video-card {
+      background-color: #12141c;
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid #1f2330;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Kartu Detail Script */
+    .card {
+      background-color: #12141c;
+      padding: 20px;
+      border-radius: 14px;
+      margin-top: 15px;
+      border: 1px solid #1f2330;
+    }
+
+    .badge-status {
+      display: inline-block;
+      background-color: rgba(0, 255, 102, 0.1);
+      color: #00ff66;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(0, 255, 102, 0.2);
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    /* Kotak Kode Script */
+    .script-box-wrapper {
+      background-color: #08090c;
+      border-radius: 8px;
+      border: 1px solid #232736;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .script-header {
+      background-color: #181a24;
+      padding: 8px 12px;
+      font-size: 11px;
+      color: #aaa;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .script-box-wrapper textarea {
+      width: 100%;
+      height: 75px;
+      background: transparent;
+      color: #00ff66;
+      border: none;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 12px;
+      resize: none;
+      outline: none;
+    }
+
+    /* Tombol Aksi */
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #ff2a2a, #b30000);
+      color: white;
+      box-shadow: 0 4px 12px rgba(255, 42, 42, 0.3);
+    }
+
+    .btn-primary.success {
+      background: linear-gradient(90deg, #28a745, #1e7e34) !important;
+      box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3) !important;
+    }
+
+    .btn-secondary {
+      background-color: #181a24;
+      color: #ccc;
+      border: 1px solid #232736;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo-section">
+      <div class="logo-box">
+        <span class="logo-letter">N</span>
+      </div>
+      <div class="brand-info">
+        <span class="brand-name">NVKING</span>
+        <span class="brand-tag"><i class="fa-solid fa-circle live-dot"></i> 11K ONLINE</span>
+      </div>
+    </div>
+    
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input type="text" id="searchInput" onkeyup="filterScripts()" placeholder="Cari script...">
+    </div>
+  </header>
+
+  <!-- Konten Utama -->
+  <main class="container">
+    <a href="#" class="back-link"><i class="fa-solid fa-chevron-left"></i> Kembali ke Video</a>
+
+    <!-- Pemutar Video YouTube -->
+    <div class="video-card">
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube.com/embed/WJ4lxbnDX-E" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Informasi & Tombol Script -->
+    <div class="card script-item">
+      <div class="badge-status">KEYLESS / FREE</div>
+      <h1 class="title" id="scriptTitle">Cali Streets OP - Inf Money, Aimbot, Hitbox Expander</h1>
+      <p class="meta"><i class="fa-solid fa-eye"></i> 2.4K Views &nbsp;•&nbsp; <i class="fa-solid fa-clock"></i> Terbaru</p>
+      
+      <!-- Area Text Script -->
+      <div class="script-box-wrapper">
+        <div class="script-header">
+          <span><i class="fa-solid fa-code"></i> Lua Code</span>
+          <span>Klik tombol di bawah untuk copy</span>
+        </div>
+        <textarea id="scriptText" readonly>loadstring(game:HttpGet("https://scriptblox.com/raw/Cali-Streets-OP-Infmoney-aimbot-HitboxExpander-free-Keyless-mobile-PC-244535"))()</textarea>
+      </div>
+
+      <!-- Tombol Get Script & Link -->
+      <div class="button-group">
+        <button onclick="copyScript()" class="btn btn-primary" id="copyBtn">
+          <i class="fa-solid fa-copy"></i> Get Script (Copy)
+        </button>
+        <a href="https://scriptblox.com/raw/Cali-Streets-OP-Infmoney-aimbot-HitboxExpander-free-Keyless-mobile-PC-244535" target="_blank" class="btn btn-secondary">
+          <i class="fa-solid fa-external-link"></i> Buka Raw Link
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function copyScript() {
+      const copyText = document.getElementById("scriptText");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+
+      navigator.clipboard.writeText(copyText.value).then(() => {
+        const btn = document.getElementById("copyBtn");
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Berhasil Disalin!';
+        btn.classList.add("success");
+        
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-solid fa-copy"></i> Get Script (Copy)';
+          btn.classList.remove("success");
+        }, 2000);
+      });
+    }
+
+    function filterScripts() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let title = document.getElementById('scriptTitle').innerText.toLowerCase();
+      let card = document.querySelector('.script-item');
+
+      if (title.includes(input)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
